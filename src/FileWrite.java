@@ -4,7 +4,17 @@ import java.io.IOException;
 import java.util.List;
 
 public class FileWrite {
-    public void writeToFile(List<Inventory> formattedInventory, String outputPath) {
+    public void writeToFile(List<Inventory> formattedInventory, String outputPath) throws Exception{
+    	if (formattedInventory == null) {
+            System.out.println("Inventory list is empty. Nothing to write.");
+            return;
+        }
+
+        if (outputPath == null) {
+            System.out.println("Output path is null. Cannot write to file.");
+            return;
+        }
+        
     	try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath));
 
@@ -14,10 +24,8 @@ public class FileWrite {
             	writer.newLine();
             }
             writer.close();
-
-            System.out.println("Data has been written to " + outputPath);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new Exception("Error reading file: " + e.getMessage(), e);
         }
     }
 }
