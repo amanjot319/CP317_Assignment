@@ -1,4 +1,4 @@
-public class Supplier {
+public class Supplier extends Object{
 	private int supplierId;
     private String supplierName;
     private String address;

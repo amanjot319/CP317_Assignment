@@ -20,7 +20,7 @@ public class FileWrite {
 
             for (Inventory inventory : formattedInventory) {
             	writer.write(inventory.getProductId() + ", " + inventory.getProductName() + ", " + inventory.getQuantity() 
-            	+ ", " + inventory.getPrice() + ", " + inventory.getStatus() + ", " + inventory.getsupplierName());
+            	+ ", " + "$" + inventory.getPrice() + ", " + inventory.getStatus() + ", " + inventory.getsupplierName());
             	writer.newLine();
             }
             writer.close();

@@ -6,8 +6,8 @@ public class FormatData {
 
 	public List<Inventory> formatInventory(List<Product> products, List<Supplier> suppliers) {
 		List<Inventory> formattedInventory = new ArrayList<>();
-
-	    for (int i = 0; i < products.size(); i++) {
+		
+	    for (int i = 0; i < (Math.min(products.size(), suppliers.size())) ; i++) {
 	        Product product = products.get(i);
 	        Supplier supplier = findSupplier(product.getSupplierId(), suppliers);
 	        if (supplier != null) {
